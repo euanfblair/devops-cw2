@@ -5,7 +5,7 @@ pipeline {
         DOCKER_IMAGE = 'euanfblair/cw2-server'
         VERSION = "${env.BUILD_NUMBER}"
         DOCKER_CREDENTIALS = 'dockerhub-credentials' 
-        PRODUCTION_SERVER = 'ubuntu@<Production_Server_IP>'
+        PRODUCTION_SERVER = 'ubuntu@ec2-18-212-79-183.compute-1.amazonaws.com'
         SSH_CREDENTIALS = 'production-server-ssh'    
     }
 
