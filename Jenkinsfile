@@ -2,11 +2,11 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = '<YourDockerHubUsername>/cw2-server'
+        DOCKER_IMAGE = 'euanfblair/cw2-server'
         VERSION = "${env.BUILD_NUMBER}"
-        DOCKER_CREDENTIALS = 'dockerhub-credentials' // Jenkins credentials ID for DockerHub
+        DOCKER_CREDENTIALS = 'dockerhub-credentials' 
         PRODUCTION_SERVER = 'ubuntu@<Production_Server_IP>'
-        SSH_CREDENTIALS = 'production-server-ssh'    // Jenkins credentials ID for SSH key
+        SSH_CREDENTIALS = 'production-server-ssh'    
     }
 
     stages {
