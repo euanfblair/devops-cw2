@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'euanfblair/cw2-server'
+        DOCKER_IMAGE = 'euanfblair/cw2-servers'
         VERSION = "${env.BUILD_NUMBER}"
         DOCKER_CREDENTIALS = 'dockerhub-credentials' 
         PRODUCTION_SERVER = 'ubuntu@ec2-18-212-79-183.compute-1.amazonaws.com'
@@ -40,7 +40,7 @@ pipeline {
                 sshagent(credentials: ["${SSH_CREDENTIALS}"]) {
                     sh """
                     ssh ${PRODUCTION_SERVER} \\
-                    'kubectl set image deployment/cw2-server cw2-server=${DOCKER_IMAGE}:${VERSION}'
+                    'kubectl set image deployment/cw2-servers cw2-servers=${DOCKER_IMAGE}:${VERSION}'
                     """
                 }
             }
